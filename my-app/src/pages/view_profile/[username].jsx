@@ -8,15 +8,38 @@ import { useRouter } from "next/router";
 import { getAllPosts } from "@/config/redux/action/postAction";
 import { getConnectionsRequest, getMyConnectionRequests, sendConnectionRequest } from "@/config/redux/action/authAction";
 
-export default function ViewProfilePage({ userProfile }) {
+export default function ViewProfilePage() {
     const router = useRouter();
     const dispatch = useDispatch();
+    const { username } = router.query;
+    
     const postReducer = useSelector((state) => state.postReducer);
     const authState = useSelector((state) => state.auth);
 
+    const [userProfile, setUserProfile] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [userPosts, setUserPosts] = useState([]);
     const [isCurrentUserInConnection, setIsCurrentUserInConnection] = useState(false);
     const [isConnectionPending, setIsConnectionPending] = useState(false);
+
+    useEffect(() => {
+        if (username) {
+            const fetchProfile = async () => {
+                setLoading(true);
+                try {
+                    const request = await clientServer.get("/user/get_profile_based_on_username", {
+                        params: { username }
+                    });
+                    setUserProfile(request.data.profile || null);
+                } catch (error) {
+                    console.error("Error fetching profile:", error);
+                } finally {
+                    setLoading(false);
+                }
+            };
+            fetchProfile();
+        }
+    }, [username]);
 
     useEffect(() => {
         dispatch(getAllPosts());
@@ -47,6 +70,18 @@ export default function ViewProfilePage({ userProfile }) {
             }
         }
     }, [authState.connections, authState.connectionRequest, userProfile, authState.user]);
+
+    if (loading) {
+        return (
+            <UserLayout>
+                <DashBoardLayout>
+                    <div style={{ padding: '2rem', textAlign: 'center' }}>
+                        <h1>Loading Profile...</h1>
+                    </div>
+                </DashBoardLayout>
+            </UserLayout>
+        );
+    }
 
     if (!userProfile) {
         return (
@@ -153,20 +188,4 @@ export default function ViewProfilePage({ userProfile }) {
             </DashBoardLayout>
         </UserLayout>
     );
-}
-
-export async function getServerSideProps(context) {  //site rendering ke liye
-    const { username } = context.query;
-    try {
-        const request = await clientServer.get("/user/get_profile_based_on_username", {
-            params: { username }
-        });
-        return {
-            props: { userProfile: request.data.profile || null }
-        };
-    } catch (error) {
-        return {
-            props: { userProfile: null }
-        };
-    }
 }
