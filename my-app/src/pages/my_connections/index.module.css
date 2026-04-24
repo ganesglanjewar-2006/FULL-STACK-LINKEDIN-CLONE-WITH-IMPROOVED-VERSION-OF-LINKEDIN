@@ -1,0 +1,107 @@
+.container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.userCard {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    padding: 1.2rem;
+    transition: all 0.3s;
+}
+
+.userCard:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userInfo h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+
+.userInfo p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.acceptBtn {
+    flex: 1;
+    background: #0a66c2;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.declineBtn {
+    flex: 1;
+    background: transparent;
+    color: #666;
+    border: 1px solid #666;
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.messageBtn {
+    width: 100%;
+    background: transparent;
+    color: #0a66c2;
+    border: 1px solid #0a66c2;
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.messageBtn:hover {
+    background: #f3f9ff;
+}
+
+.emptyState {
+    color: #666;
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}

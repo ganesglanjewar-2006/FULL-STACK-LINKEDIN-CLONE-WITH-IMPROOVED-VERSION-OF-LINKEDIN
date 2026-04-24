@@ -1,0 +1,136 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f2ef;
+    padding: 1rem;
+}
+
+.cardContainer {
+    display: flex;
+    background: #fff;
+    width: 100%;
+    max-width: 900px;
+    min-height: 550px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.cardContainer_left {
+    flex: 1;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardleft_heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1d1d1d;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.inputField {
+    padding: 0.9rem 1.2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.inputField:focus {
+    border-color: #0a66c2;
+    box-shadow: 0 0 0 1px #0a66c2;
+}
+
+.buttonWithOutline {
+    background: #0a66c2;
+    color: white;
+    padding: 0.9rem;
+    border-radius: 24px;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+.buttonWithOutline:hover {
+    background: #004182;
+}
+
+.cardContainer_right {
+    flex: 0.8;
+    background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.cardContainer_right h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.cardContainer_right p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.switchBtn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.7rem 2rem;
+    border-radius: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.switchBtn:hover {
+    background: white;
+    color: #0a66c2;
+}
+
+@media only screen and (max-width: 768px) {
+    .cardContainer {
+        flex-direction: column;
+    }
+    
+    .cardContainer_right {
+        display: none; /* Hide illustrative side on mobile for simplicity */
+    }
+    
+    .mobileSwitch {
+        display: block;
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+    }
+}
