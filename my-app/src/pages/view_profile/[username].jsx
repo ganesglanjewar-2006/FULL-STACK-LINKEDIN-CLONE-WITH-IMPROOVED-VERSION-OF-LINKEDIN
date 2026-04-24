@@ -26,7 +26,7 @@ export default function ViewProfilePage({ userProfile }) {
 
     useEffect(() => {
         if (postReducer.posts && userProfile) {
-            const filteredPosts = postReducer.posts.filter((post) => 
+            const filteredPosts = postReducer.posts.filter((post) =>
                 post.userId?.username === userProfile.userId?.username
             );
             setUserPosts(filteredPosts);
@@ -94,11 +94,11 @@ export default function ViewProfilePage({ userProfile }) {
                                         Connect
                                     </button>
                                 )}
-                                
-                                <div 
-                                    style={{ 
-                                        width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #0a66c2', 
-                                        display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0a66c2', cursor: 'pointer' 
+
+                                <div
+                                    style={{
+                                        width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #0a66c2',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0a66c2', cursor: 'pointer'
                                     }}
                                     onClick={async () => {
                                         const response = await clientServer.get(`/user/download_resume?user_id=${userProfile.userId._id}`);
@@ -155,7 +155,7 @@ export default function ViewProfilePage({ userProfile }) {
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {  //site rendering ke liye
     const { username } = context.query;
     try {
         const request = await clientServer.get("/user/get_profile_based_on_username", {
