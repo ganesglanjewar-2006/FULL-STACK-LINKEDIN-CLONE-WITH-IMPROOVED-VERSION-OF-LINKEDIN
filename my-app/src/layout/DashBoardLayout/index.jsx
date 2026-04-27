@@ -71,7 +71,7 @@ export default function DashBoardLayout({ children }) {
                             >
                                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#f0f0f0', overflow: 'hidden' }}>
                                     {profile.userId.profilePicture && (
-                                        <img src={`${BASE_URL}${profile.userId.profilePicture}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
+                                    <img src={`${BASE_URL}${profile.userId.profilePicture || "default.jpg"}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
                                     )}
                                 </div>
                                 <div>

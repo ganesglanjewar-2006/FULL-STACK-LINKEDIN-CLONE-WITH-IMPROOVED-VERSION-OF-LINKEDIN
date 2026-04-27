@@ -55,7 +55,7 @@ export default function MyConnectionsPage() {
                                     <div key={request._id} className={styles.userCard}>
                                         <div className={styles.cardHeader} onClick={() => router.push(`/view_profile/${request.userId.username}`)}>
                                             <img 
-                                                src={request.userId.profilePicture ? `${BASE_URL}${request.userId.profilePicture}` : "/images/default_profile.jpg"} 
+                                                src={`${BASE_URL}${request.userId.profilePicture || "default.jpg"}`} 
                                                 alt={request.userId.name} 
                                                 className={styles.avatar}
                                             />
@@ -81,7 +81,7 @@ export default function MyConnectionsPage() {
                                 <div key={request._id} className={styles.userCard} onClick={() => router.push(`/view_profile/${request.userId.username}`)}>
                                     <div className={styles.cardHeader}>
                                         <img 
-                                            src={request.userId.profilePicture ? `${BASE_URL}${request.userId.profilePicture}` : "/images/default_profile.jpg"} 
+                                            src={`${BASE_URL}${request.userId.profilePicture || "default.jpg"}`} 
                                             alt={request.userId.name} 
                                             className={styles.avatar}
                                         />
@@ -97,7 +97,7 @@ export default function MyConnectionsPage() {
                                 <div key={request._id} className={styles.userCard} onClick={() => router.push(`/view_profile/${request.connectionId.username}`)}>
                                     <div className={styles.cardHeader}>
                                         <img 
-                                            src={request.connectionId.profilePicture ? `${BASE_URL}${request.connectionId.profilePicture}` : "/images/default_profile.jpg"} 
+                                            src={`${BASE_URL}${request.connectionId.profilePicture || "default.jpg"}`} 
                                             alt={request.connectionId.name} 
                                             className={styles.avatar}
                                         />

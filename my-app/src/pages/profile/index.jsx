@@ -111,7 +111,7 @@ function ProfilePage() {
                         <div className={styles.profilePicContainer} onClick={() => fileInputRef.current.click()}>
                             <img
                                 className={styles.profilePicture}
-                                src={authState.user.userId?.profilePicture ? `${BASE_URL}${authState.user.userId.profilePicture}` : "/images/default_profile.jpg"}
+                                src={`${BASE_URL}${authState.user.userId?.profilePicture || "default.jpg"}`}
                                 alt={userProfile.name}
                             />
                             <div className={styles.profilePicOverlay}>

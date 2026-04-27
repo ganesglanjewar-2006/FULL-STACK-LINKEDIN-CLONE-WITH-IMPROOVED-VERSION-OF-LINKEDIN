@@ -75,7 +75,7 @@ export default function Dashboard() {
                         <div className={styles.createPostContainer}>
                             <img 
                                 className={styles.userProfile} 
-                                src={authState.user?.userId?.profilePicture ? `${BASE_URL}${authState.user.userId.profilePicture}` : "/images/default_profile.jpg"} 
+                                src={`${BASE_URL}${authState.user?.userId?.profilePicture || "default.jpg"}`} 
                                 alt="" 
                             />
                             <textarea 
@@ -105,7 +105,7 @@ export default function Dashboard() {
                             {postState.posts.map((post) => (
                                 <div key={post._id} className={styles.singleCard} style={{ marginBottom: '1rem' }}>
                                     <div className={styles.singleCard_profileContainer}>
-                                        <img src={post.userId?.profilePicture ? `${BASE_URL}${post.userId.profilePicture}` : "/images/default_profile.jpg"} alt="" />
+                                        <img src={`${BASE_URL}${post.userId?.profilePicture || "default.jpg"}`} alt="" />
                                         <div className={styles.postInfo} style={{ flex: 1 }}>
                                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: 'center' }}>
                                                 <h4 onClick={() => router.push(`/${post.userId?.username}`)} style={{ cursor: 'pointer' }}>
@@ -178,7 +178,7 @@ export default function Dashboard() {
                                     <div key={index} className={styles.singleComment}>
                                         <img 
                                             className={styles.singleComment_userProfile} 
-                                            src={comment.userId?.profilePicture ? `${BASE_URL}${comment.userId.profilePicture}` : "/images/default_profile.jpg"} 
+                                            src={`${BASE_URL}${comment.userId?.profilePicture || "default.jpg"}`} 
                                             alt="" 
                                         />
                                         <div className={styles.singleComment_content}>

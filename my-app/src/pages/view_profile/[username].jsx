@@ -103,7 +103,7 @@ export default function ViewProfilePage() {
                     <div className={styles.header}>
                         <img
                             className={styles.profilePicture}
-                            src={userProfile.userId?.profilePicture ? `${BASE_URL}${userProfile.userId.profilePicture}` : "/images/default_profile.jpg"}
+                            src={`${BASE_URL}${userProfile.userId?.profilePicture || "default.jpg"}`}
                             alt={userProfile.userId?.name}
                         />
                     </div>
